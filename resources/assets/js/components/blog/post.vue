@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="header">
-            <a>{{ blogTitle }}</a>
+            <a class="blog-title" v-on:click="toHome">{{ blogTitle }}</a>
             <div style="clear: both"></div>
             <input class="search-bar" placeholder="Search.."
                    ref="searchBar"
@@ -64,7 +64,10 @@
       },
       selectSearchText () {
         this.$refs.searchBar.select()
-      }
+      },
+      toHome () {
+         location.href = '/'
+      },
     }
   }
 </script>
