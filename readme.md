@@ -35,3 +35,7 @@ yoursite/create
 
 #### 其他
 登录状态下,首页会有编辑和删除的按钮在每一个文章后面
+
+## 致谢
+系统的界面设计参考了 [这个项目](https://github.com/viko16/vue-ghpages-blog)
+创建文章的markdown编辑器[lepture/editor](https://github.com/lepture/editor)
