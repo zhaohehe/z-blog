@@ -4,7 +4,13 @@
 ## 安装
 clone代码到你本地
 
+composer install
+
+npm install
+
 复制.env文件, 配置好各项参数,尤其是数据库连接 和 博客名字  BLOG_TITLE
+
+php artisan key:generate
 
 修改 resouce/assets/js/components/blog/api/index.js文件中的BaseRoot为你的域名
 如果你是用php artisan serve来运行的话 可以先不修改
