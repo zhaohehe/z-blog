@@ -1,0 +1,166 @@
+@import '~normalize.css'
+@import '~prismjs/themes/prism.css'
+
+//
+// variable
+// -----------------------------------------
+
+fontSize = 14px
+
+fontFamily = "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif
+monospaceFontFamily = "Ubuntu Mono" ,"PT Mono", Consolas, Monaco, Menlo, monospace
+
+bgColor = #fff
+textColor = #555
+linkColor = #08c
+metaColor = #888
+codeBgColor = #f7f7f7
+
+//
+// common
+// -----------------------------------------
+
+/::-moz-selection,
+/::selection
+  background #B2D7FF
+
+body
+  // font
+  font-family fontFamily
+  font-size fontSize
+  line-height 2
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  -webkit-text-size-adjust none
+  // size
+  position relative
+  max-width 700px
+  margin 0 auto
+  padding 0
+  background bgColor
+  color textColor
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-weight 400
+
+a
+  text-decoration none
+  color linkColor
+  overflow-wrap break-word
+  word-break break-all
+
+//
+// Shared
+// -----------------------------------------
+
+.header
+  margin 50px auto
+  text-align center
+  a
+    font-size fontSize + 2
+    letter-spacing 5px
+    text-transform uppercase
+    color textColor
+
+.search-bar
+  display block
+  margin 5px auto 0
+  width 150px
+  font-family fontFamily
+  text-align center
+  border none
+  background-color bgColor
+  &:hover,
+  &:focus,
+  &:active
+    outline none
+    background-color darken(bgColor, 2)
+    text-decoration none
+
+.footer
+  margin-bottom 15px
+  text-align center
+  color metaColor
+  a
+    color textColor
+
+//
+// List View
+// -----------------------------------------
+
+.list-view
+  margin 0 20px
+  ol,
+  ul
+    padding 0
+    list-style none
+
+.list-item
+  position relative
+  margin-bottom 50px
+
+.item-title
+  display inline-block
+  margin-bottom 10px
+  font-size fontSize + 2
+  color textColor
+  &:hover
+    color linkColor
+
+.item-date
+  display inline-block
+  font-size fontSize - 2
+  color metaColor
+  border-top 1px solid #ddd
+  padding-top 12px
+
+//
+// Post View
+// -----------------------------------------
+
+.post-view
+  margin 0 20px 50px
+  a:hover
+    border-bottom 1px dashed linkColor
+
+.post-title
+  line-height 1
+  margin-bottom 50px
+
+// when smaller than tablet
+@media (max-width: 767px)
+  .post-title
+    font-size 1.5em
+
+.post-date
+  float right
+  font-size fontSize - 2
+  font-weight 400
+  line-height 2
+  color metaColor
+
+pre
+  background codeBgColor !important
+  padding 16px
+  overflow-x auto
+  white-space pre
+
+code
+  background codeBgColor
+  font-family monospaceFontFamily !important
+
+blockquote
+  margin 0
+  padding 0 16px
+  border-left 4px solid #ddd
+
+edit
+  font-size 12px
+  a:hover
+    border-bottom 1px dashed linkColor
+  cursor pointer
