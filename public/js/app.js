@@ -12434,7 +12434,7 @@ exports.i(__webpack_require__(12), "");
 exports.i(__webpack_require__(11), "");
 
 // module
-exports.push([module.i, "\n::-moz-selection,\n::-moz-selection {\n  background: #b2d7ff;\n}\n::-moz-selection,\n::selection {\n  background: #b2d7ff;\n}\nbody {\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  font-size: 14px;\n  line-height: 2;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: none;\n  position: relative;\n  max-width: 700px;\n  margin: 0 auto;\n  padding: 0;\n  background: #fff;\n  color: #555;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: 400;\n}\na {\n  text-decoration: none;\n  color: #08c;\n  overflow-wrap: break-word;\n  word-break: break-all;\n}\n.header {\n  margin: 50px auto;\n  text-align: center;\n}\n.header a {\n  font-size: 16px;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #555;\n}\n.search-bar {\n  display: block;\n  margin: 5px auto 0;\n  width: 150px;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  text-align: center;\n  border: none;\n  background-color: #fff;\n}\n.search-bar:hover,\n.search-bar:focus,\n.search-bar:active {\n  outline: none;\n  background-color: #fafafa;\n  text-decoration: none;\n}\n.footer {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #888;\n}\n.footer a {\n  color: #555;\n}\n.list-view {\n  margin: 0 20px;\n}\n.list-view ol,\n.list-view ul {\n  padding: 0;\n  list-style: none;\n}\n.list-item {\n  position: relative;\n  margin-bottom: 50px;\n}\n.item-title {\n  display: inline-block;\n  margin-bottom: 10px;\n  font-size: 16px;\n  color: #555;\n}\n.item-title:hover {\n  color: #08c;\n}\n.item-date {\n  display: inline-block;\n  font-size: 12px;\n  color: #888;\n  border-top: 1px solid #ddd;\n  padding-top: 12px;\n}\n.post-view {\n  margin: 0 20px 50px;\n}\n.post-view a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.post-title {\n  line-height: 1;\n  margin-bottom: 50px;\n}\n@media (max-width: 767px) {\n.post-title {\n    font-size: 1.5em;\n}\n}\n.post-date {\n  float: right;\n  font-size: 12px;\n  font-weight: 400;\n  line-height: 2;\n  color: #888;\n}\npre {\n  background: #f7f7f7 !important;\n  padding: 16px;\n  overflow-x: auto;\n  white-space: pre;\n}\ncode {\n  background: #f7f7f7;\n  font-family: \"Ubuntu Mono\", \"PT Mono\", Consolas, Monaco, Menlo, monospace !important;\n}\nblockquote {\n  margin: 0;\n  padding: 0 16px;\n  border-left: 4px solid #ddd;\n}\nedit {\n  font-size: 12px;\n  cursor: pointer;\n}\nedit a:hover {\n  border-bottom: 1px dashed #08c;\n}\n", ""]);
+exports.push([module.i, "\n::-moz-selection,\n::-moz-selection {\n  background: #b2d7ff;\n}\n::-moz-selection,\n::selection {\n  background: #b2d7ff;\n}\nbody {\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  font-size: 14px;\n  line-height: 2;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: none;\n  position: relative;\n  max-width: 700px;\n  margin: 0 auto;\n  padding: 0;\n  background: #fff;\n  color: #555;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: 400;\n}\na {\n  text-decoration: none;\n  color: #08c;\n  overflow-wrap: break-word;\n  word-break: break-all;\n}\n.header {\n  margin: 50px auto;\n  text-align: center;\n}\n.header a {\n  font-size: 16px;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #555;\n}\n.search-bar {\n  display: block;\n  margin: 5px auto 0;\n  width: 150px;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  text-align: center;\n  border: none;\n  background-color: #fff;\n}\n.search-bar:hover,\n.search-bar:focus,\n.search-bar:active {\n  outline: none;\n  background-color: #fafafa;\n  text-decoration: none;\n}\n.footer {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #888;\n}\n.footer a {\n  color: #555;\n}\n.list-view {\n  margin: 0 20px;\n}\n.list-view ol,\n.list-view ul {\n  padding: 0;\n  list-style: none;\n}\n.list-item {\n  position: relative;\n  margin-bottom: 50px;\n}\n.item-title {\n  display: inline-block;\n  margin-bottom: 10px;\n  font-size: 16px;\n  color: #555;\n}\n.item-title:hover {\n  color: #08c;\n}\n.item-date {\n  display: inline-block;\n  font-size: 12px;\n  color: #888;\n  border-top: 1px solid #ddd;\n  padding-top: 12px;\n}\n.post-view {\n  margin: 0 20px 50px;\n}\n.post-view a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.post-title {\n  line-height: 1;\n  margin-bottom: 50px;\n}\n@media (max-width: 767px) {\n.post-title {\n    font-size: 1.5em;\n}\n}\n.post-date {\n  float: right;\n  font-size: 12px;\n  font-weight: 400;\n  line-height: 2;\n  color: #888;\n}\npre {\n  background: #f7f7f7 !important;\n  padding: 16px;\n  overflow-x: auto;\n  white-space: pre;\n}\ncode {\n  background: #f7f7f7;\n  font-family: \"Ubuntu Mono\", \"PT Mono\", Consolas, Monaco, Menlo, monospace !important;\n}\nblockquote {\n  margin: 0;\n  padding: 0 16px;\n  border-left: 4px solid #ddd;\n}\nedit {\n  font-size: 12px;\n  cursor: pointer;\n}\nedit a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.blog-title {\n  cursor: pointer;\n}\n.blog-title a:hover {\n  border-bottom: 1px dashed #08c;\n}\n", ""]);
 
 // exports
 
@@ -12449,7 +12449,7 @@ exports.i(__webpack_require__(12), "");
 exports.i(__webpack_require__(11), "");
 
 // module
-exports.push([module.i, "\n::-moz-selection,\n::-moz-selection {\n  background: #b2d7ff;\n}\n::-moz-selection,\n::selection {\n  background: #b2d7ff;\n}\nbody {\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  font-size: 14px;\n  line-height: 2;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: none;\n  position: relative;\n  max-width: 700px;\n  margin: 0 auto;\n  padding: 0;\n  background: #fff;\n  color: #555;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: 400;\n}\na {\n  text-decoration: none;\n  color: #08c;\n  overflow-wrap: break-word;\n  word-break: break-all;\n}\n.header {\n  margin: 50px auto;\n  text-align: center;\n}\n.header a {\n  font-size: 16px;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #555;\n}\n.search-bar {\n  display: block;\n  margin: 5px auto 0;\n  width: 150px;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  text-align: center;\n  border: none;\n  background-color: #fff;\n}\n.search-bar:hover,\n.search-bar:focus,\n.search-bar:active {\n  outline: none;\n  background-color: #fafafa;\n  text-decoration: none;\n}\n.footer {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #888;\n}\n.footer a {\n  color: #555;\n}\n.list-view {\n  margin: 0 20px;\n}\n.list-view ol,\n.list-view ul {\n  padding: 0;\n  list-style: none;\n}\n.list-item {\n  position: relative;\n  margin-bottom: 50px;\n}\n.item-title {\n  display: inline-block;\n  margin-bottom: 10px;\n  font-size: 16px;\n  color: #555;\n}\n.item-title:hover {\n  color: #08c;\n}\n.item-date {\n  display: inline-block;\n  font-size: 12px;\n  color: #888;\n  border-top: 1px solid #ddd;\n  padding-top: 12px;\n}\n.post-view {\n  margin: 0 20px 50px;\n}\n.post-view a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.post-title {\n  line-height: 1;\n  margin-bottom: 50px;\n}\n@media (max-width: 767px) {\n.post-title {\n    font-size: 1.5em;\n}\n}\n.post-date {\n  float: right;\n  font-size: 12px;\n  font-weight: 400;\n  line-height: 2;\n  color: #888;\n}\npre {\n  background: #f7f7f7 !important;\n  padding: 16px;\n  overflow-x: auto;\n  white-space: pre;\n}\ncode {\n  background: #f7f7f7;\n  font-family: \"Ubuntu Mono\", \"PT Mono\", Consolas, Monaco, Menlo, monospace !important;\n}\nblockquote {\n  margin: 0;\n  padding: 0 16px;\n  border-left: 4px solid #ddd;\n}\nedit {\n  font-size: 12px;\n  cursor: pointer;\n}\nedit a:hover {\n  border-bottom: 1px dashed #08c;\n}\n", ""]);
+exports.push([module.i, "\n::-moz-selection,\n::-moz-selection {\n  background: #b2d7ff;\n}\n::-moz-selection,\n::selection {\n  background: #b2d7ff;\n}\nbody {\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  font-size: 14px;\n  line-height: 2;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: none;\n  position: relative;\n  max-width: 700px;\n  margin: 0 auto;\n  padding: 0;\n  background: #fff;\n  color: #555;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: 400;\n}\na {\n  text-decoration: none;\n  color: #08c;\n  overflow-wrap: break-word;\n  word-break: break-all;\n}\n.header {\n  margin: 50px auto;\n  text-align: center;\n}\n.header a {\n  font-size: 16px;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #555;\n}\n.search-bar {\n  display: block;\n  margin: 5px auto 0;\n  width: 150px;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif;\n  text-align: center;\n  border: none;\n  background-color: #fff;\n}\n.search-bar:hover,\n.search-bar:focus,\n.search-bar:active {\n  outline: none;\n  background-color: #fafafa;\n  text-decoration: none;\n}\n.footer {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #888;\n}\n.footer a {\n  color: #555;\n}\n.list-view {\n  margin: 0 20px;\n}\n.list-view ol,\n.list-view ul {\n  padding: 0;\n  list-style: none;\n}\n.list-item {\n  position: relative;\n  margin-bottom: 50px;\n}\n.item-title {\n  display: inline-block;\n  margin-bottom: 10px;\n  font-size: 16px;\n  color: #555;\n}\n.item-title:hover {\n  color: #08c;\n}\n.item-date {\n  display: inline-block;\n  font-size: 12px;\n  color: #888;\n  border-top: 1px solid #ddd;\n  padding-top: 12px;\n}\n.post-view {\n  margin: 0 20px 50px;\n}\n.post-view a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.post-title {\n  line-height: 1;\n  margin-bottom: 50px;\n}\n@media (max-width: 767px) {\n.post-title {\n    font-size: 1.5em;\n}\n}\n.post-date {\n  float: right;\n  font-size: 12px;\n  font-weight: 400;\n  line-height: 2;\n  color: #888;\n}\npre {\n  background: #f7f7f7 !important;\n  padding: 16px;\n  overflow-x: auto;\n  white-space: pre;\n}\ncode {\n  background: #f7f7f7;\n  font-family: \"Ubuntu Mono\", \"PT Mono\", Consolas, Monaco, Menlo, monospace !important;\n}\nblockquote {\n  margin: 0;\n  padding: 0 16px;\n  border-left: 4px solid #ddd;\n}\nedit {\n  font-size: 12px;\n  cursor: pointer;\n}\nedit a:hover {\n  border-bottom: 1px dashed #08c;\n}\n.blog-title {\n  cursor: pointer;\n}\n.blog-title a:hover {\n  border-bottom: 1px dashed #08c;\n}\n", ""]);
 
 // exports
 
@@ -14632,7 +14632,12 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('header', {
     staticClass: "header"
-  }, [_c('a', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
+  }, [_c('a', {
+    staticClass: "blog-title",
+    on: {
+      "click": _vm.toHome
+    }
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
     staticStyle: {
       "clear": "both"
     }
@@ -14715,7 +14720,12 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('header', {
     staticClass: "header"
-  }, [_c('a', [_vm._v(_vm._s(_vm.blogTitle))]), _vm._v(" "), _c('div', {
+  }, [_c('a', {
+    staticClass: "blog-title",
+    on: {
+      "click": _vm.toHome
+    }
+  }, [_vm._v(_vm._s(_vm.blogTitle))]), _vm._v(" "), _c('div', {
     staticStyle: {
       "clear": "both"
     }
@@ -42996,6 +43006,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     selectSearchText: function selectSearchText() {
       this.$refs.searchBar.select();
     },
+    toHome: function toHome() {
+      location.href = '/';
+    },
     list: function list() {
       var _this = this;
 
@@ -43096,6 +43109,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     selectSearchText: function selectSearchText() {
       this.$refs.searchBar.select();
+    },
+    toHome: function toHome() {
+      location.href = '/';
     }
   }
 };
