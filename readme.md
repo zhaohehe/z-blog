@@ -28,7 +28,10 @@ clone代码到你本地
 ```yoursite/login?account=xxx&password=xxx  ```
 
 #### 创建新的文章
-```yoursite/create```
+
+```
+yoursite/create
+```
 
 #### 其他
 登录状态下,首页会有编辑和删除的按钮在每一个文章后面
