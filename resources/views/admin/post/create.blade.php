@@ -16,6 +16,11 @@
     </div>
 </body>
 <script type="application/javascript">
+    Vue.http.interceptors.push((request, next)  => {
+        request.headers.set('X-CSRF-TOKEN', '{{ csrf_token() }}')
+    next();
+    });
+
     var app = new Vue({
         el: '#app',
         editor: null,
