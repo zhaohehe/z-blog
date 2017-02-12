@@ -21,7 +21,7 @@
 
         <footer class="footer">
             Copyright © {{ (new Date()).getFullYear() }} |
-            Powered by <a href="" target="_blank">z-blog</a>
+            Powered by <a href="https://github.com/zhaohehe/z-blog" target="_blank">z-blog</a>
         </footer>
     </div>
 </template>

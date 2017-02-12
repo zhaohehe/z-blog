@@ -14700,7 +14700,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "footer"
   }, [_vm._v("\n        Copyright © " + _vm._s((new Date()).getFullYear()) + " |\n        Powered by "), _c('a', {
     attrs: {
-      "href": "",
+      "href": "https://github.com/zhaohehe/z-blog",
       "target": "_blank"
     }
   }, [_vm._v("z-blog")])])])
@@ -14756,7 +14756,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "footer"
   }, [_vm._v("\n        Copyright © " + _vm._s((new Date()).getFullYear()) + " |\n        Powered by "), _c('a', {
     attrs: {
-      "href": "",
+      "href": "https://github.com/zhaohehe/z-blog",
       "target": "_blank"
     }
   }, [_vm._v("z-blog")])])])
