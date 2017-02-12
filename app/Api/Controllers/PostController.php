@@ -38,7 +38,7 @@ class PostController extends Controller
         $posts = [];
 
         //transform
-        foreach (Post::all() as $key => $value) {
+        foreach (Post::orderBy('created_at', 'desc')->get() as $key => $value) {
             $posts[$key]['id'] = $value['id'];
             $posts[$key]['title'] = $value['title'];
             $posts[$key]['date'] = Carbon::parse($value['created_at'])->toDateString();
