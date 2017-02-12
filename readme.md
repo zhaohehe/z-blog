@@ -12,7 +12,7 @@ clone代码到你本地
 
 ```php artisan key:generate```
 
-修改 resouce/assets/js/components/blog/api/index.js文件中的BaseRoot为你的域名
+修改 resources/assets/js/components/blog/api/index.js文件中的BaseRoot为你的域名
 如果你是用php artisan serve来运行的话 可以先不修改
 
 ```php artisan migrate``` 建表
