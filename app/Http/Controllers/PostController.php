@@ -34,4 +34,11 @@ class PostController extends Controller
 
         return view('admin.post.edit')->with(compact('post'));
     }
+
+    public function me()
+    {
+        $postId = Post::where('title', '关于我')->first()->id;
+
+        return view('blog.post')->with(['id' => $postId, 'blogTitle' => env('BLOG_TITLE')]);
+    }
 }

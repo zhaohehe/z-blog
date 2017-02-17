@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'PostController@index');
 Route::get('/post/{id}', 'PostController@show');
 
+Route::get('/me', 'PostController@me');
+
 //create and edit
 Route::group(['middleware' => 'auth'], function () {
 
