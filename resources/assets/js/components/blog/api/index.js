@@ -1,5 +1,5 @@
 
-const BaseRoot = 'http://blog.laravel.band/';
+const BaseRoot = 'http://localhost:8000/';
 
 const Version = 'api/';
 const makeApi = function (url) {

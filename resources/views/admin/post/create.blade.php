@@ -1,68 +1,65 @@
 <html>
 <head>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
-    <script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
-    <script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
+    {{--<link rel="stylesheet" type="text/css" href="https://simplemde.com/stylesheets/normalize.css" media="screen">--}}
+    {{--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">--}}
+    {{--<link rel="stylesheet" type="text/css" href="https://simplemde.com/stylesheets/stylesheet.css" media="screen">--}}
+    <link rel="stylesheet" type="text/css" href="{{url('css/mobi.min.css')}}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{url('css/simplemde-theme-base.css')}}">
 
-    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.js"></script>
-    <script src="http://cdn.bootcss.com/vue-resource/1.1.0/vue-resource.min.js"></script>
+
+    <script src="{{url('js/simplemde.min.js')}}"></script>
+
+
 
 </head>
 <body>
-    <div id="app">
-        <input class="title" id="title" type="text" placeholder="请输入文章标题" v-model="title" />
-        <textarea id="editor"></textarea>
-        <button v-on:click="save">保存</button>
-    </div>
-</body>
+<div>
+    <textarea id="MyID"> </textarea>
+</div>
+
 <script type="application/javascript">
-    Vue.http.interceptors.push((request, next)  => {
-        request.headers.set('X-CSRF-TOKEN', '{{ csrf_token() }}')
-    next();
-    });
 
-    var app = new Vue({
-        el: '#app',
-        editor: null,
-        data: {
-            title: '',
-        },
-        mounted: function () {
-            this.editor = new Editor({
-                element: document.getElementById('editor'),
 
-            })
-            this.editor.render();
-        },
-        methods: {
-            save: function()
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("MyID"),
+        toolbar: [
+            "bold", "italic", "heading", "|", "preview", "fullscreen", "image", "side-by-side",
             {
-                var content = this.editor.codemirror.getValue()
+                name: "save",
+                action: function save(editor) {
+                    var content = editor.value();
 
-                this.$http.post('{{url('api/post')}}', {'title':this.title,'content':content}).then(function (response)  {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("POST", "{{url('api/post')}}", true);
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlhttp.setRequestHeader("X-CSRF-TOKEN","{{ csrf_token() }}");
+                    xmlhttp.send("content=" + content);
+                    xmlhttp.onreadystatechange = function()
+                    {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                        {
+                            console.log(xmlhttp.responseText);
+                        }
+                    }
 
-                    location.href = '/post/' + response.body.postId
-                }, function (response) {
-                    alert('保存失败')
-                })
+                },
+                className: "fa fa-save",
+                title: "save"
+            },
+            {
+                name: "home",
+                action: function save(editor) {
+                    location.href = "{{url('/')}}"
+                },
+                className: "fa fa-home",
+                title: "home"
             }
-        }
-    })
-</script>
-<style>
-    body{
-        margin: 0px;
-    }
-    input.title {
-        font: 18px "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
-        background: transparent;
-        padding: 4px;
-        height: 40px;
-        width: 100%;
-        border: none;
-        outline: none;
-        opacity: 0.6;
-    }
-</style>
-</html>
+        ],
+    });
+    //    simplemde.toggleSideBySide();
 
+
+</script>
+
+</body>
+</html>
