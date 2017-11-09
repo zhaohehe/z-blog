@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -51,4 +52,15 @@ class PostController extends Controller
 
         return view('blog.post')->with(['id' => $postId, 'blogTitle' => env('BLOG_TITLE')]);
     }
+
+
+    public function message()
+	{
+		// 获取内容
+		$content = Cache::store('redis')->get('message_content');
+
+		return view('message')->with([
+			'content' => $content
+		]);
+	}
 }

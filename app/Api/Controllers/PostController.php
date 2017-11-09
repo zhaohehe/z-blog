@@ -11,7 +11,9 @@ use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Post;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -53,6 +55,23 @@ class PostController extends Controller
             return response()->json(compact('postId'));
         }
     }
+
+	/**
+	 * 保存临时页面的内容
+	 *
+	 * @param Request $request
+	 * @return bool
+	 * @author qian.zhao
+	 */
+    public function saveMessage(Request $request)
+	{
+		// 存储内容
+		$content = $request->get('content');
+
+		Cache::store('redis')->put('message_content', $content, 60 * 24);
+
+		return 'ok';
+	}
 
     public function index()
     {
