@@ -16,7 +16,7 @@
                 <time class="post-date">{{date}}</time>
             </h1>
             <div style="margin:-25px 0px 30px 0px;" v-for="tag in tags" class="list-item">
-                <a v-on:click="toTag(tag)" style="cursor:pointer; background: #f5f5f5; color:#37A; width:auto; font-size:12px; padding:2px 10px 2px;">{{tag}}</a>
+                <a v-on:click="toTag(tag.id)" style="cursor:pointer; background: #f5f5f5; color:#37A; width:auto; font-size:12px; padding:2px 10px 2px;">{{tag.name}}</a>
             </div>
             <article v-if="content" v-html="htmlFromMarkdown"></article>
         </section>

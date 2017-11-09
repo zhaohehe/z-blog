@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('blog-home', require('./components/blog/home.vue'));
+Vue.component('blog-tag', require('./components/blog/tag.vue'));
 Vue.component('blog-post', require('./components/blog/post.vue'));
 
 const app = new Vue({

@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Post;
+use App\PostTag;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +20,15 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+
+	protected $tagModel;
+	protected $postModel;
+
+	public function __construct(Tag $tagModel, Post $postModel)
+	{
+		$this->tagModel = $tagModel;
+		$this->postModel = $postModel;
+	}
 
 	/**
 	 * 保存文章接口
@@ -52,6 +63,8 @@ class PostController extends Controller
 
         if ($post = Post::create(['title' => $title])) {
             $postId = $post->id;
+			$this->tagModel->setTags($tags);
+			$this->postModel->setTags($tags->toArray(), $postId);
             return response()->json(compact('postId'));
         }
     }
@@ -92,6 +105,33 @@ class PostController extends Controller
     }
 
 	/**
+	 * 根据标签获取文章列表
+	 *
+	 * @param $tagId
+	 * @return \Illuminate\Http\JsonResponse
+	 * @author zhaohehe
+	 */
+    public function tag($tagId)
+	{
+		$posts = [];
+
+		$postIds = PostTag::where('tag_id', $tagId)->pluck('post_id')->toArray();
+
+		$postRaw = Post::whereIn('id', $postIds)->orderBy('created_at', 'desc')->get()->reject(function ($post) {
+			return $post->title == '关于我';
+		});
+
+		//transform
+		foreach ($postRaw as $key => $value) {
+			$posts[$key]['id'] = $value['id'];
+			$posts[$key]['title'] = $value['title'];
+			$posts[$key]['date'] = Carbon::parse($value['created_at'])->toDateString();
+		}
+
+		return response()->json(['data' => $posts]);
+	}
+
+	/**
 	 * 获取一个文字的内容
 	 *
 	 * @param $id
@@ -115,7 +155,12 @@ class PostController extends Controller
 			'id' => $postRaw['id'],
 			'title' => $postRaw['title'],
 			'content' => $content,
-			'tags' => ['java', '代理模式'],
+
+			// 按照标签长度排序
+			'tags' => array_values($postRaw->tags->sortBy(function ($tag) {
+				return strlen($tag->name);
+			})->toArray()),
+
 			'contentRaw' => $contentRaw,
 			'date' => Carbon::parse($postRaw['created_at'])->toDateString(),
 		];
@@ -138,6 +183,9 @@ class PostController extends Controller
 		})->map(function ($tag) {
 			return str_replace('- ', '', $tag);
 		});
+
+		$this->tagModel->setTags($tags);
+		$this->postModel->setTags($tags->toArray(), $id);
 
 		$filename = $this->getFilename($post['title']);
 

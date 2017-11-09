@@ -7,6 +7,7 @@ Auth::routes();
 
 //blog view
 Route::get('/', 'PostController@index');
+Route::get('/tag/{tag}', 'PostController@tag');
 Route::get('/post/{id}', 'PostController@show');
 
 Route::get('/me', 'PostController@me');

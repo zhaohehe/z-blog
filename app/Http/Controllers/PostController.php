@@ -20,6 +20,12 @@ class PostController extends Controller
         return view('blog.post')->with(['id' => $id, 'blogTitle' => env('BLOG_TITLE')]);
     }
 
+    public function tag($tag)
+	{
+		return view('blog.tag')->with(['tag' => $tag, 'blogTitle' => env('BLOG_TITLE')]);
+
+	}
+
 	/**
 	 * post create page
 	 *
