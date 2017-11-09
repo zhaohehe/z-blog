@@ -10,4 +10,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+	protected function getFilename($title)
+	{
+		return $title . '-' . date('Y-m-d') . '.md';
+	}
 }

@@ -11559,9 +11559,9 @@ function applyToTag (styleElement, obj) {
 
 var BaseRoot = 'http://localhost:8000/';
 
-var Version = 'api/';
+var Version = '/api/';
 var makeApi = function makeApi(url) {
-    return BaseRoot + Version + url;
+    return Version + url;
 };
 var makeUrl = function makeUrl(url) {
     return BaseRoot + url;

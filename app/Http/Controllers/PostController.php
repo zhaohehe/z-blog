@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,13 @@ class PostController extends Controller
 		]);
     }
 
+	/**
+	 * 编辑文章页面
+	 *
+	 * @param $id
+	 * @return $this
+	 * @ahthor zhaohehe
+	 */
     public function edit($id)
     {
         $postRaw = Post::find($id);
@@ -41,8 +49,14 @@ class PostController extends Controller
         //transform
         $post['id'] = $postRaw['id'];
         $post['title'] = $postRaw['title'];
-        $post['content'] = Storage::get($postRaw['title'].'.md');
-
+        try {
+			$content = Storage::get($this->getFilename($postRaw['title']));
+		} catch (\Exception $e) {
+        	Log::error($e->getMessage());
+        	$content = '...';
+		}
+		$post['content'] = str_replace(PHP_EOL, '\r\n', $content);
+		
         return view('admin.post.edit')->with(compact('post'));
     }
 

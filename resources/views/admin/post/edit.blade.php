@@ -1,81 +1,71 @@
 <html>
 <head>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
-    <script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
-    <script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
+    {{--<link rel="stylesheet" type="text/css" href="https://simplemde.com/stylesheets/normalize.css" media="screen">--}}
+    {{--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">--}}
+    {{--<link rel="stylesheet" type="text/css" href="https://simplemde.com/stylesheets/stylesheet.css" media="screen">--}}
+    <link rel="stylesheet" type="text/css" href="{{url('css/mobi.min.css')}}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{url('css/simplemde-theme-base.css')}}">
 
-    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.js"></script>
-    <script src="http://cdn.bootcss.com/vue-resource/1.1.0/vue-resource.min.js"></script>
+
+    <script src="{{url('js/simplemde.min.js')}}"></script>
+
+
 
 </head>
 <body>
-<div id="app">
-    <input class="title" id="title" type="text" placeholder="请输入文章标题" v-model="title" />
-    <textarea id="editor"></textarea>
-    <button v-on:click="save">保存</button>
+<div>
+    <textarea id="MyID"> </textarea>
 </div>
-</body>
+
 <script type="application/javascript">
-    Vue.http.interceptors.push((request, next)  => {
-        request.headers.set('X-CSRF-TOKEN', '{{ csrf_token() }}')
-        next();
+
+
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("MyID"),
+        toolbar: [
+            "bold", "italic", "heading", "|", "preview", "fullscreen", "image", "side-by-side", "|",
+            {
+                name: "save",
+                action: function save(editor) {
+                    var content = editor.value();
+
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("PUT", "{{url('api/post/' . $post['id'])}}", true);
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlhttp.setRequestHeader("X-CSRF-TOKEN","{{ csrf_token() }}");
+                    xmlhttp.send("content=" + content);
+                    xmlhttp.onreadystatechange = function()
+                    {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                        {
+                            var data = xmlhttp.responseText;
+                            var data = eval('(' + data + ')');
+//                            console.log(data.data.postId)
+                            location.href = '/post/' + data.data.postId;
+                        } else {
+
+                        }
+                    }
+
+                },
+                className: "fa fa-save",
+                title: "save"
+            },
+            {
+                name: "home",
+                action: function save(editor) {
+                    location.href = "{{url('/')}}"
+                },
+                className: "fa fa-home",
+                title: "home"
+            }
+        ],
     });
 
-    var app = new Vue({
-        el: '#app',
-        editor: null,
-        data: {
-            title: '{{ $post['title'] }}',
-        },
-        mounted: function () {
-            this.editor = new Editor({
-                element: document.getElementById('editor'),
+    simplemde.value("{{$post['content']}}");
 
-            })
-            this.editor.render();
-
-            //set content
-            this.$http.get('{{url('api/post/'.$post['id'])}}').then(function (response)  {
-
-                console.log(response.body.data.content)
-                this.editor.codemirror.getDoc().setValue(response.body.data.content);
-            }, function (response) {
-                alert('保存失败')
-            })
-        },
-        methods: {
-            save: function()
-            {
-
-                var content = this.editor.codemirror.getValue()
-
-                this.$http.put('{{url('api/post/'.$post['id'])}}', {'title':this.title,'content':content}).then(function (response)  {
-
-                    location.href = '/post/' + '{{ $post['id'] }}'
-                }, function (response) {
-                    alert('保存失败')
-                })
-            }
-        }
-    })
-</script>
-<style>
-    body{
-        margin: 0px;
-    }
-    input.title {
-        font: 18px "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
-        background: transparent;
-        padding: 4px;
-        height: 40px;
-        width: 100%;
-        border: none;
-        outline: none;
-        opacity: 0.6;
-    }
-</style>
-<script type="application/javascript">
 
 </script>
+
+</body>
 </html>
-

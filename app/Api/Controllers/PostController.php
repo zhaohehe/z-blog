@@ -124,15 +124,26 @@ class PostController extends Controller
     public function update($id, PostUpdateRequest $request)
     {
         $post = Post::find($id);
+		$content = $request->get('content');
 
-        //delete old file
-        Storage::delete($post['title'].'.md');
+		// 解析出标题 和 标签
+		$head = explode(PHP_EOL, array_first(explode('---', $content)));
+		$title = trim(str_replace('#', '', array_first($head)));
+
+		array_shift($head);
+		$tags = collect($head)->reject(function ($tag) {
+			return empty($tag);
+		})->map(function ($tag) {
+			return str_replace('- ', '', $tag);
+		});
+
+		$filename = $this->getFilename($post['title']);
 
         //save new file
-        Storage::put($request['title'].'.md', $request['content']);
+        Storage::put($filename, $content);
 
         //update
-        if ($post = $post->update(['title' => $request['title']])) {
+        if ($post = $post->update(['title' => $title])) {
             return response()->json(['data' => ['postId' => $id]]);
         }
 
@@ -146,8 +157,4 @@ class PostController extends Controller
         }
     }
 
-    private function getFilename($title)
-	{
-		return $title . '-' . date('Y-m-d') . '.md';
-	}
 }
