@@ -4,10 +4,11 @@ Route::get('/post', 'PostController@index');
 
 Route::get('/post/{id}', 'PostController@show');
 
+
 //create and edit
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::post('/post', 'PostController@create');
+    Route::post('/post', 'PostController@save');
 
     Route::put('/post/{id}', 'PostController@update');
 

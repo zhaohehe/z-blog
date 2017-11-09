@@ -16,18 +16,39 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    public function __construct()
+
+	/**
+	 * 保存文章接口
+	 *
+	 * @param PostCreateRequest $request
+	 * @return \Illuminate\Http\JsonResponse
+	 * @throws \Exception
+	 * @author qian.zhao
+	 */
+    public function save(PostCreateRequest $request)
     {
+		$content = $request->get('content');
 
-    }
+		// 解析出标题 和 标签
+		$head = explode(PHP_EOL, array_first(explode('---', $content)));
+		$title = trim(str_replace('#', '', array_first($head)));
 
-    public function create(PostCreateRequest $request)
-    {
-        //save post content to file
-        Storage::put($request['title'].'.md', $request['content']);
+		array_shift($head);
+		$tags = collect($head)->reject(function ($tag) {
+			return empty($tag);
+		})->map(function ($tag) {
+			return str_replace('- ', '', $tag);
+		});
 
-        //db
-        if ($post = Post::create(['title' => $request['title']])) {
+		// 检查文件名是否已经存在
+		$filename = $this->getFilename($title);
+		if (Storage::exists($filename)) {
+			throw new \Exception('文章已存在');
+		}
+
+        Storage::put($filename, $content);
+
+        if ($post = Post::create(['title' => $title])) {
             $postId = $post->id;
             return response()->json(compact('postId'));
         }
@@ -51,15 +72,32 @@ class PostController extends Controller
         return response()->json(['data' => $posts]);
     }
 
+	/**
+	 * 获取一个文字的内容
+	 *
+	 * @param $id
+	 * @return \Illuminate\Http\JsonResponse
+	 * @author qian.zhao
+	 */
     public function show($id)
     {
         $postRaw = Post::find($id);
 
         //transform
-        $post['id'] = $postRaw['id'];
-        $post['title'] = $postRaw['title'];
-        $post['date'] = Carbon::parse($postRaw['created_at'])->toDateString();
-        $post['content'] = Storage::get($postRaw['title'].'.md');
+        $contentRaw = Storage::get($this->getFilename($postRaw['title']));
+
+        // 只返回文章的内容部分
+		$cutoffLine = strpos($contentRaw, '---');
+		$startPos = $cutoffLine + 3;
+		$content = substr($contentRaw, $startPos);
+		$content = empty($content) ? '...' : $content;
+
+		$post = [
+			'id' => $postRaw['id'],
+			'title' => $postRaw['title'],
+			'content' => $content,
+			'date' => Carbon::parse($postRaw['created_at'])->toDateString(),
+		];
 
         return response()->json(['data' => $post]);
     }
@@ -88,4 +126,9 @@ class PostController extends Controller
             return response()->json();
         }
     }
+
+    private function getFilename($title)
+	{
+		return $title . '-' . date('Y-m-d') . '.md';
+	}
 }

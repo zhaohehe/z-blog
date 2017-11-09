@@ -18,9 +18,19 @@ class PostController extends Controller
         return view('blog.post')->with(['id' => $id, 'blogTitle' => env('BLOG_TITLE')]);
     }
 
+	/**
+	 * post create page
+	 *
+	 * @return $this
+	 * @author zhaohehe
+	 */
     public function create()
     {
-        return view('admin.post.create');
+    	$defaultContent = '## title\n- tag1\n- tag2\n---';
+
+        return view('admin.post.create')->with([
+        	'defaultContent' => $defaultContent
+		]);
     }
 
     public function edit($id)

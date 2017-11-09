@@ -23,7 +23,7 @@
     var simplemde = new SimpleMDE({
         element: document.getElementById("MyID"),
         toolbar: [
-            "bold", "italic", "heading", "|", "preview", "fullscreen", "image", "side-by-side",
+            "bold", "italic", "heading", "|", "preview", "fullscreen", "image", "side-by-side", "|",
             {
                 name: "save",
                 action: function save(editor) {
@@ -38,7 +38,11 @@
                     {
                         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                         {
-                            console.log(xmlhttp.responseText);
+                            var data = xmlhttp.responseText;
+                            var data = eval('(' + data + ')');
+                            location.href = 'post/' + data.postId;
+                        } else {
+
                         }
                     }
 
@@ -56,7 +60,8 @@
             }
         ],
     });
-    //    simplemde.toggleSideBySide();
+
+    simplemde.value("{{$defaultContent}}");
 
 
 </script>
