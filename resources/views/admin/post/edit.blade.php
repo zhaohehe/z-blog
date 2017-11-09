@@ -62,7 +62,22 @@
         ],
     });
 
-    simplemde.value("{{$post['content']}}");
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "{{url('api/post/' . $post['id'])}}", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            var data = xmlhttp.responseText;
+            var data = eval('(' + data + ')');
+            console.log(data.data.contentRaw)
+            simplemde.value(data.data.contentRaw)
+        } else {
+
+        }
+    }
 
 
 </script>

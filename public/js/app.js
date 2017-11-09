@@ -14769,11 +14769,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "post-title"
   }, [_vm._v("\n            " + _vm._s(_vm.title) + "\n            "), _c('time', {
     staticClass: "post-date"
-  }, [_vm._v(_vm._s(_vm.date))])]), _vm._v(" "), (_vm.content) ? _c('article', {
+  }, [_vm._v(_vm._s(_vm.date))])]), _vm._v(" "), _vm._l((_vm.tags), function(tag) {
+    return _c('div', {
+      staticClass: "list-item",
+      staticStyle: {
+        "margin": "-25px 0px 30px 0px"
+      }
+    }, [_c('a', {
+      staticStyle: {
+        "cursor": "pointer",
+        "background": "#f5f5f5",
+        "color": "#37A",
+        "width": "auto",
+        "font-size": "12px",
+        "padding": "2px 10px 2px"
+      },
+      on: {
+        "click": function($event) {
+          _vm.toTag(tag)
+        }
+      }
+    }, [_vm._v(_vm._s(tag))])])
+  }), _vm._v(" "), (_vm.content) ? _c('article', {
     domProps: {
       "innerHTML": _vm._s(_vm.htmlFromMarkdown)
     }
-  }) : _vm._e()]), _vm._v(" "), _c('footer', {
+  }) : _vm._e()], 2), _vm._v(" "), _c('footer', {
     staticClass: "footer"
   }, [_vm._v("\n        Copyright © " + _vm._s((new Date()).getFullYear()) + " |\n        Powered by "), _c('a', {
     attrs: {
@@ -43090,6 +43111,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -43118,6 +43142,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(response.data.data);
       var post = response.data.data;
       _this.date = post.date;
+      _this.tags = post.tags;
       _this.title = post.title;
       _this.content = post.content;
     });
@@ -43133,6 +43158,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     toHome: function toHome() {
       location.href = '/';
+    },
+    toTag: function toTag(tag) {
+      location.href = '/tag/' + tag;
     }
   }
 };

@@ -56,7 +56,7 @@ class PostController extends Controller
         	$content = '...';
 		}
 		$post['content'] = str_replace(PHP_EOL, '\r\n', $content);
-		
+
         return view('admin.post.edit')->with(compact('post'));
     }
 

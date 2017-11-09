@@ -115,6 +115,8 @@ class PostController extends Controller
 			'id' => $postRaw['id'],
 			'title' => $postRaw['title'],
 			'content' => $content,
+			'tags' => ['java', '代理模式'],
+			'contentRaw' => $contentRaw,
 			'date' => Carbon::parse($postRaw['created_at'])->toDateString(),
 		];
 
