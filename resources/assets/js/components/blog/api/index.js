@@ -6,7 +6,7 @@ const makeApi = function (url) {
     return  Version + url;
 };
 const makeUrl = function (url) {
-    return BaseRoot + url;
+    return '/' + url;
 };
 
 export default {

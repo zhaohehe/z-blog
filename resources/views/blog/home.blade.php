@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <blog-home :auth="{{ \Illuminate\Support\Facades\Auth::user() ? '1' : '0'}}"></blog-home>
+    <blog-home :auth="{{ \Illuminate\Support\Facades\Auth::user() ? '0' : '0'}}"></blog-home>
 @endsection
 @section('style')
 @endsection

@@ -187,7 +187,7 @@ class PostController extends Controller
 		$this->tagModel->setTags($tags);
 		$this->postModel->setTags($tags->toArray(), $id);
 
-		$filename = $this->getFilename($post['title']);
+		$filename = $this->getFilename($title);
 
         //save new file
         Storage::put($filename, $content);
@@ -196,9 +196,14 @@ class PostController extends Controller
         if ($post = $post->update(['title' => $title])) {
             return response()->json(['data' => ['postId' => $id]]);
         }
-
-
     }
+
+    public function message()
+	{
+		// 获取内容
+		$message = Cache::store('redis')->get('message_content');
+		return response()->json(['data' => ['message' => $message]]);
+	}
 
     public function destroy($id)
     {

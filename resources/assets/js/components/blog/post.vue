@@ -3,10 +3,10 @@
         <header class="header">
             <a class="blog-title" v-on:click="toHome">{{ blogTitle }}</a>
             <div style="clear: both"></div>
-            <input class="search-bar" placeholder="Search.."
-                   ref="searchBar"
-                   @click="selectSearchText"
-                   @keyup.esc="resetSearch">
+            <!--<input class="search-bar" placeholder="Search.."-->
+                   <!--ref="searchBar"-->
+                   <!--@click="selectSearchText"-->
+                   <!--@keyup.esc="resetSearch">-->
         </header>
 
         <section class="post-view">

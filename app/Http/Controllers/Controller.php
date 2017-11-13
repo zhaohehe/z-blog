@@ -13,6 +13,7 @@ class Controller extends BaseController
 
 	protected function getFilename($title)
 	{
+		return $title . '.md';
 		return $title . '-' . date('Y-m-d') . '.md';
 	}
 }

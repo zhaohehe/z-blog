@@ -11299,7 +11299,7 @@ var makeApi = function makeApi(url) {
     return Version + url;
 };
 var makeUrl = function makeUrl(url) {
-    return BaseRoot + url;
+    return '/' + url;
 };
 
 /* harmony default export */ __webpack_exports__["a"] = {
@@ -14891,19 +14891,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.blogTitle))]), _vm._v(" "), _c('div', {
     staticStyle: {
       "clear": "both"
-    }
-  }), _vm._v(" "), _c('input', {
-    ref: "searchBar",
-    staticClass: "search-bar",
-    attrs: {
-      "placeholder": "Search.."
-    },
-    on: {
-      "click": _vm.selectSearchText,
-      "keyup": function($event) {
-        if (_vm._k($event.keyCode, "esc", 27)) { return; }
-        _vm.resetSearch($event)
-      }
     }
   })]), _vm._v(" "), _c('section', {
     staticClass: "post-view"
@@ -43211,6 +43198,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     resetSearch: function resetSearch() {
       this.keyword = '';
+      windows.console.log('aa');
       this.$refs.searchBar.blur();
     },
     selectSearchText: function selectSearchText() {

@@ -59,7 +59,20 @@
         ],
     });
 
-    simplemde.value("{{$content}}");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "{{url('api/message')}}", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            var data = xmlhttp.responseText;
+            var data = eval('(' + data + ')');
+            simplemde.value(data.data.message)
+        } else {
+
+        }
+    }
 
 
 </script>

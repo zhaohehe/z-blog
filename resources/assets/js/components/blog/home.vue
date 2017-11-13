@@ -57,6 +57,7 @@
     methods: {
       resetSearch () {
         this.keyword = ''
+        windows.console.log('aa')
         this.$refs.searchBar.blur()
       },
       selectSearchText () {
